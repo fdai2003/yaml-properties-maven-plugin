@@ -22,14 +22,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
-        <artifactId>mojo-parent</artifactId>
-        <groupId>org.codehaus.mojo</groupId>
-        <version>38</version>
+        <groupId>com.pro-crafting</groupId>
+        <artifactId>pc-parent</artifactId>
+        <version>9</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>it.ozimov</groupId>
+    <groupId>com.pro-crafting.maven</groupId>
     <artifactId>yaml-properties-maven-plugin</artifactId>
     <version>1.1.4-SNAPSHOT</version>
 
@@ -58,6 +58,11 @@
     </prerequisites>
 
     <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
         <maven.api.version>2.2.1</maven.api.version>
         <mojo.java.target>1.5</mojo.java.target>
 
@@ -71,18 +76,10 @@
 
 
     <scm>
-        <connection>scm:git:https://github.com/ozimov/yaml-properties-maven-plugin.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/ozimov/yaml-properties-maven-plugin.git</developerConnection>
-        <url>https://github.com/ozimov/yaml-properties-maven-plugin</url>
+        <connection>scm:git:https://github.com/pro-crafting/yaml-properties-maven-plugin.git</connection>
+        <developerConnection>scm:git:https://github.com/pro-crafting/yaml-properties-maven-plugin.git</developerConnection>
+        <url>https://github.com/pro-crafting/yaml-properties-maven-plugin</url>
     </scm>
-    <issueManagement>
-        <system>GitHub</system>
-        <url>https://github.com/ozimov/yaml-properties-maven-plugin/issues/</url>
-    </issueManagement>
-    <ciManagement>
-        <system>Travis-CI</system>
-        <url>https://travis-ci.org/ozimov/yaml-properties-maven-plugin</url>
-    </ciManagement>
 
     <developers>
         <developer>
@@ -94,7 +91,15 @@
             <roles>
                 <role>developer</role>
             </roles>
-            <timezone>+1</timezone>
+            <timezone>+</timezone>
+        </developer>
+        <developer>
+            <id>fda2003</id>
+            <name>Sebastian Schmitt</name>
+            <roles>
+                <role>developer</role>
+            </roles>
+            <timezone>+2</timezone>
         </developer>
     </developers>
 
@@ -108,6 +113,7 @@
         <dependency>
             <groupId>org.apache.maven</groupId>
             <artifactId>maven-plugin-api</artifactId>
+            <version>2.2.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.maven</groupId>
@@ -127,6 +133,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -139,22 +146,14 @@
         <dependency>
             <groupId>org.apache.maven.plugin-tools</groupId>
             <artifactId>maven-plugin-annotations</artifactId>
+            <!--must be same version of m-plugin-p -->
+            <version>3.4</version>
             <scope>provided</scope>
         </dependency>
 
     </dependencies>
 
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
     <build>
         <pluginManagement>
             <plugins>
@@ -202,15 +201,6 @@
                     <generateBackupPoms>false</generateBackupPoms>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-scm-plugin</artifactId>
-                <version>${maven-scm-plugin}</version>
-                <configuration>
-                    <pushChanges>false</pushChanges>
-                    <tag>${project.version}</tag>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 
@@ -232,64 +222,6 @@
                             <dependencySourceIncludes>
                                 <dependencySourceInclude>org.hamcrest:hamcrest-core:*</dependencySourceInclude>
                             </dependencySourceIncludes>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>release</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                        <version>${maven-source-plugin}</version>
-                        <executions>
-                            <execution>
-                                <id>attach-sources</id>
-                                <goals>
-                                    <goal>jar-no-fork</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>${maven-javadoc-plugin}</version>
-                        <executions>
-                            <execution>
-                                <id>attach-javadocs</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>${maven-gpg-plugin}</version>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.sonatype.plugins</groupId>
-                        <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>${nexus-staging-maven-plugin}</version>
-                        <extensions>true</extensions>
-                        <configuration>
-                            <serverId>ossrh</serverId>
-                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
                         </configuration>
                     </plugin>
                 </plugins>
