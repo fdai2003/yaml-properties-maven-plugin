@@ -31,7 +31,7 @@
 
     <groupId>com.pro-crafting.maven</groupId>
     <artifactId>yaml-properties-maven-plugin</artifactId>
-    <version>1.1.4</version>
+    <version>1.1.5-SNAPSHOT</version>
 
     <name>Yaml Properties Maven Plugin</name>
     <description>
@@ -82,7 +82,7 @@
         <connection>scm:git:https://github.com/pro-crafting/yaml-properties-maven-plugin.git</connection>
         <developerConnection>scm:git:https://github.com/pro-crafting/yaml-properties-maven-plugin.git</developerConnection>
         <url>https://github.com/pro-crafting/yaml-properties-maven-plugin</url>
-      <tag>yaml-properties-maven-plugin-1.1.4</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <developers>
