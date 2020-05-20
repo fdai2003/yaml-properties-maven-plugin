@@ -3,7 +3,7 @@
 
 
 **Continuous Integration:**<br />
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/it.ozimov/yaml-properties-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/it.ozimov/yaml-properties-maven-plugin)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.pro-crafting.maven/yaml-properties-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.pro-crafting.maven/yaml-properties-maven-plugin)
 <br />
 [![Build Status](https://travis-ci.org/ozimov/yaml-properties-maven-plugin.svg?branch=master)](https://travis-ci.org/ozimov/yaml-properties-maven-plugin)
 
