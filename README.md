@@ -13,20 +13,20 @@
 This extension provides capability to import content from a yaml file into your pom.
 To this end, you should read the instructions for the [properties-maven-plugin](http://www.mojohaus.org/properties-maven-plugin/).
 
-Just rememeber that current release is **version 1.1.3**. To use it in Maven, replace the following code
+Just rememeber that current release is **version 1.1.4**. To use it in Maven, replace the following code
 
 ```xml
-<groupId>org.codehaus.mojo</groupId>
+<groupId>com.pro-crafting.maven</groupId>
 <artifactId>properties-maven-plugin</artifactId>
-<version>1.0.0</version>
+<version>1.1.4</version>
 ```
 
 with:
 
 ```xml
-<groupId>it.ozimov</groupId>
+<groupId>com.pro-crafting.maven</groupId>
 <artifactId>yaml-properties-maven-plugin</artifactId>
-<version>1.1.3</version>
+<version>1.1.4</version>
 ```
 
 ## Example of usage:
@@ -34,7 +34,7 @@ with:
 <plugin>
     <groupId>it.ozimov</groupId>
     <artifactId>yaml-properties-maven-plugin</artifactId>
-    <version>LATES</version>
+    <version>LATEST</version>
     <executions>
         <execution>
             <phase>initialize</phase>
