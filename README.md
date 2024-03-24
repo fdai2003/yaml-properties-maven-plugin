@@ -7,6 +7,10 @@
 <br />
 [![Build Status](https://travis-ci.org/ozimov/yaml-properties-maven-plugin.svg?branch=master)](https://travis-ci.org/ozimov/yaml-properties-maven-plugin)
 
+## Project is going to be archived.
+
+The properties-maven-plugin can now be expanded with additional file formats. I will update the readme once a final solution for yaml properties files is available.
+https://github.com/mojohaus/properties-maven-plugin/tree/master/src/main/java/org/codehaus/mojo/properties/managers
 
 ## How to use it?
 
