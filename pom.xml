@@ -24,7 +24,7 @@
     <parent>
         <groupId>com.pro-crafting</groupId>
         <artifactId>pc-parent</artifactId>
-        <version>9</version>
+        <version>16</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -103,6 +103,12 @@
             <roles>
                 <role>developer</role>
             </roles>
+            <timezone>+2</timezone>
+        </developer>
+        <developer>
+            <id>Postremus</id>
+            <name>Martin Panzer</name>
+            <email>postremus1996@googlemail.com</email>
             <timezone>+2</timezone>
         </developer>
     </developers>
